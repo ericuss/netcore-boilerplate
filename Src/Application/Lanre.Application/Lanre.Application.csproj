@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
@@ -14,24 +14,18 @@
     <NoWarn>$(NoWarn),1573,1591,1712, SA1309 </NoWarn>
   </PropertyGroup>
 
-  <!-- <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="$(MicrosoftHttpAbstractionsPackageVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="$(MicrosoftMvcApiExplorerPackageVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="$(MicrosoftMvcCorePackageVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="$(MicrosoftMvcFormattersJsonPackageVersion)" />
-    <PackageReference Include="Microsoft.AspnetCore.Mvc.Versioning" Version="$(MicrosoftMvcVersioningPackageVersion)" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftExtensionsDependencyInjectionPackageVersion)" />
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="$(MediatRPackageVersion)" />
+    <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalizersPackageVersion)" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation.AspNetCore" Version="$(FluentValidationAspNetCorePackageVersion)" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleAspNetCorePackageVersion)" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="$(SwashbuckleAspNetCoreAnnotationsPackageVersion)" />
-    <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalizersPackageVersion)" PrivateAssets="All" />
-  </ItemGroup> -->
+    <AdditionalFiles Include="..\..\_configuration\stylecop.json" />
+  </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\..\_configuration\stylecop.json" />
+    <ProjectReference Include="..\..\Domain\Lanre.Domain\Lanre.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Lanre.Infrastructure\Lanre.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

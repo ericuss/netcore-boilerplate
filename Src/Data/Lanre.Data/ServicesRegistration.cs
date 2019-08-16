@@ -2,8 +2,13 @@
 
 namespace Lanre.Data
 {
+    using System;
     using Lanre.Data.Contexts.Lanre;
+    using Lanre.Data.Repositories;
+    using Lanre.Data.Repositories.Core;
+    using Lanre.Domain.Entities;
     using Lanre.Infrastructure.Entities;
+    using Lanre.Infrastructure.Repository;
     using Microsoft.Extensions.DependencyInjection;
 
     public static class ServicesRegistration
@@ -11,6 +16,7 @@ namespace Lanre.Data
         public static IServiceCollection RegisterDataServices(this IServiceCollection services, AppSettings settings)
         {
             services
+                .AddScoped<IUnitOfWork, UnitOfWork>()
                 .RegisterRepositories()
                 .RegisterReadOnlyRepositories()
                 .RegisterDB(settings)
@@ -21,11 +27,13 @@ namespace Lanre.Data
 
         private static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
+            services.AddScoped<IRepositoryReadOnly<User, Guid>, UserRepository>();
             return services;
         }
 
         private static IServiceCollection RegisterReadOnlyRepositories(this IServiceCollection services)
         {
+            services.AddScoped<IRepository<User, Guid>, UserRepository>();
             return services;
         }
 

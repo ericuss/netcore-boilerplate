@@ -51,10 +51,11 @@ namespace Lanre.Data.Contexts.Core
                     await context.Database.EnsureDeletedAsync();
                 }
 
-                if (!await context.Database.EnsureCreatedAsync())
-                {
-                    context.Database.Migrate();
-                }
+                // if (!await context.Database.EnsureCreatedAsync())
+                // {
+                context.Database.Migrate();
+                
+                // }
             }
         }
     }

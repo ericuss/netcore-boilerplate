@@ -2,9 +2,12 @@
 
 namespace Lanre.Clients.Host
 {
+    using System.Reflection;
+    using Lanre.Application.Queries.GetUsers;
     using Lanre.Clients.Api;
     using Lanre.Data;
     using Lanre.Infrastructure.Entities;
+    using MediatR;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -37,6 +40,8 @@ namespace Lanre.Clients.Host
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                .AddSingleton(this._appSettings)
+                .AddMediatR(Assembly.GetAssembly(typeof(GetUsersQuery)))
                 .ConfigureServicesApi()
                 .Services
                 .RegisterDataServices(this._appSettings)

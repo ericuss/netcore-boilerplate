@@ -30,6 +30,8 @@
 
     <PropertyGroup Label="Package Versions">
         <FluentValidationAspNetCorePackageVersion>8.4.0</FluentValidationAspNetCorePackageVersion>
+        <MediatRPackageVersion>7.0.0</MediatRPackageVersion>
+        <MediatRExtensionsMicrosoftDependencyInjectionPackageVersion>7.0.0</MediatRExtensionsMicrosoftDependencyInjectionPackageVersion>
         <SwashbuckleAspNetCorePackageVersion>4.0.1</SwashbuckleAspNetCorePackageVersion>
         <SwashbuckleAspNetCoreAnnotationsPackageVersion>4.0.1</SwashbuckleAspNetCoreAnnotationsPackageVersion>
         <StyleCopAnalizersPackageVersion>1.1.118</StyleCopAnalizersPackageVersion>

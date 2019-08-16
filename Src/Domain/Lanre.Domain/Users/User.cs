@@ -5,10 +5,9 @@ namespace Lanre.Domain.Entities
     using System;
     using Lanre.Infrastructure.Entities;
 
-    public class User : Entity<Guid>
+    public class User : AggregateRoot<Guid>
     {
-        public User(Guid id, string name, string surname)
-            : base(id)
+        public User(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
@@ -22,5 +21,11 @@ namespace Lanre.Domain.Entities
         public string Name { get; set; }
 
         public string Surname { get; set; }
+
+        public void Update(string name, string surname)
+        {
+            this.Name = name;
+            this.Surname = surname;
+        }
     }
 }
