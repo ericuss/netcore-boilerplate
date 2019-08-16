@@ -1,0 +1,26 @@
+<Project>
+    <PropertyGroup Label="SDK Versions">
+        <NetStandardTargetVersion>netstandard2.0</NetStandardTargetVersion>
+        <NetCoreTargetVersion>netcoreapp2.2</NetCoreTargetVersion>
+        <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+
+
+    <PropertyGroup Label="Microsoft Package Versions">
+        <MicrosoftHttpAbstractionsPackageVersion>2.2.0</MicrosoftHttpAbstractionsPackageVersion>
+        <MicrosoftMvcApiExplorerPackageVersion>2.2.0</MicrosoftMvcApiExplorerPackageVersion>
+        <MicrosoftExtensionsConfigurationUserSecretsPackageVersion>2.2.0</MicrosoftExtensionsConfigurationUserSecretsPackageVersion>
+        <MicrosoftMvcFormattersJsonPackageVersion>2.2.0</MicrosoftMvcFormattersJsonPackageVersion>
+        <MicrosoftMvcCorePackageVersion>2.2.0</MicrosoftMvcCorePackageVersion>
+        <MicrosoftMvcVersioningPackageVersion>3.1.1</MicrosoftMvcVersioningPackageVersion>
+        <MicrosoftExtensionsDependencyInjectionPackageVersion>2.2.0</MicrosoftExtensionsDependencyInjectionPackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Package Versions">
+        <FluentValidationAspNetCorePackageVersion>8.1.2</FluentValidationAspNetCorePackageVersion>
+        <SwashbuckleAspNetCorePackageVersion>4.0.1</SwashbuckleAspNetCorePackageVersion>
+        <SwashbuckleAspNetCoreAnnotationsPackageVersion>4.0.1</SwashbuckleAspNetCoreAnnotationsPackageVersion>
+        <StyleCopAnalizersPackageVersion>1.1.0-beta009</StyleCopAnalizersPackageVersion>
+    </PropertyGroup>
+
+</Project>
