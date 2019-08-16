@@ -29,6 +29,7 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package Versions">
+        <AspNetCoreHealthChecksSqlServerPackageVersion>2.2.1</AspNetCoreHealthChecksSqlServerPackageVersion>
         <FluentValidationAspNetCorePackageVersion>8.4.0</FluentValidationAspNetCorePackageVersion>
         <MediatRPackageVersion>7.0.0</MediatRPackageVersion>
         <MediatRExtensionsMicrosoftDependencyInjectionPackageVersion>7.0.0</MediatRExtensionsMicrosoftDependencyInjectionPackageVersion>

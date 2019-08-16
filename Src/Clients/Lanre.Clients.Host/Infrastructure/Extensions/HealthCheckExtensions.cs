@@ -2,23 +2,24 @@
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    using Lanre.Infrastructure.Entities;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.Extensions.Diagnostics.HealthChecks;
 
     public static class HealthCheckExtensions
     {
-        public static IServiceCollection AddCustomHealthChecks(this IServiceCollection services)
+        public static IServiceCollection AddCustomHealthChecks(this IServiceCollection services, AppSettings appSettings)
         {
             var hcBuilder = services.AddHealthChecks();
 
             hcBuilder.AddCheck("self", () => HealthCheckResult.Healthy());
 
-            // hcBuilder
-            //     .AddSqlServer(
-            //         configuration["ConnectionString"],
-            //         name: "OrderingDB-check",
-            //         tags: new string[] { "orderingdb" });
+            hcBuilder
+                .AddSqlServer(
+                    appSettings.ConnectionStrings.Lanre,
+                    name: "LanreDB-check",
+                    tags: new string[] { "lanredb" });
             return services;
         }
 

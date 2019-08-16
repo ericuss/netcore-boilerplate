@@ -45,7 +45,7 @@ namespace Lanre.Clients.Host
                 .ConfigureServicesApi()
                 .Services
                 .RegisterDataServices(this._appSettings)
-                .AddCustomHealthChecks()
+                .AddCustomHealthChecks(this._appSettings)
                 .AddCustomSwagger()
                 ;
         }
