@@ -38,6 +38,7 @@ namespace Lanre.Clients.Host
             services
                 .ConfigureServicesApi()
                 .Services
+                .AddCustomHealthChecks()
                 .AddCustomSwagger()
                 ;
         }
@@ -49,6 +50,7 @@ namespace Lanre.Clients.Host
                 .AddIf(this._appSettings.Settings.DetailedErrors, x => x.UseDeveloperExceptionPage())
                 .UseCustomErrorHandler()
                 .UseCustomHttps(this._currentEnvironment)
+                .UseHealthChecks()
                 .ConfigureApi()
                 .UseCustomSwagger()
                 ;
