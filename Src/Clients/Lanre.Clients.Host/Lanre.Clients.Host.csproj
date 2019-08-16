@@ -28,6 +28,12 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="$(FluentValidationAspNetCorePackageVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleAspNetCorePackageVersion)" />
+    <PackageReference Include="Serilog.AspNetCore" Version="$(SerilogAspNetCorePackageVersion)" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="$(SerilogExtensionsLoggingPackageVersion)" />
+    <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="$(SerilogEnrichersCorrelationIdPackageVersion)" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="$(SerilogSinksConsolePackageVersion)" />
+    <PackageReference Include="Serilog.Sinks.AzureApp" Version="$(SerilogSinksAzureAppPackageVersion)" />
+
     <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalizersPackageVersion)" PrivateAssets="All" />
   </ItemGroup>
 
