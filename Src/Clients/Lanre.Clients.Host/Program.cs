@@ -43,9 +43,7 @@ namespace Lanre.Clients.Host
                 .WriteTo.AzureApp(
                     LogEventLevel.Warning,
                     "{NewLine}[{Timestamp:HH:mm:ss} {Level}-{ConnectionId}] {Message}{NewLine}{Exception}")
-                .CreateLogger();
-
-            Log.Logger = config as Serilog.ILogger;
+                ;
         }
     }
 }
