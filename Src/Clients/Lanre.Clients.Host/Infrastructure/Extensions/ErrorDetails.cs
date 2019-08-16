@@ -1,6 +1,6 @@
 // Copyright (c) Lanre. All rights reserved.
 
-namespace Lanre.Clients.Host.Infrastructure.Middlewares
+namespace Lanre.Clients.Host.Infrastructure.Extensions
 {
     using Newtonsoft.Json;
 

@@ -50,6 +50,7 @@ namespace Lanre.Clients.Host
                 .AddIf(this._appSettings.Settings.DetailedErrors, x => x.UseDeveloperExceptionPage())
                 .UseCustomErrorHandler()
                 .UseCustomHttps(this._currentEnvironment)
+                .UseCustomMiniprofilerHandler()
                 .UseHealthChecks()
                 .ConfigureApi()
                 .UseCustomSwagger()

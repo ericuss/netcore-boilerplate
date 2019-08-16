@@ -5,6 +5,7 @@ namespace Lanre.Clients.Host.Infrastructure.Middlewares
     using System;
     using System.Net;
     using System.Threading.Tasks;
+    using Lanre.Clients.Host.Infrastructure.Extensions;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
 
