@@ -1,11 +1,11 @@
 // Copyright (c) Lanre. All rights reserved.
 
-namespace Lanre.Application.Queries.GetUsers
+namespace Lanre.Application.Queries.UserQueries
 {
     using System.Collections.Generic;
     using MediatR;
 
-    public class GetUsersQuery : IRequest<IEnumerable<GetUserResponse>>
+    public class UsersQuery : IRequest<IEnumerable<UserQueryResponse>>
     {
     }
 }

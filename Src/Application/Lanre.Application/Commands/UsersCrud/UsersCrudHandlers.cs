@@ -48,4 +48,3 @@ namespace Lanre.Application.Commands.UsersCrud
         }
     }
 }
-

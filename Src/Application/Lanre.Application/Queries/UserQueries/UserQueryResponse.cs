@@ -1,12 +1,12 @@
 // Copyright (c) Lanre. All rights reserved.
 
-namespace Lanre.Application.Queries.GetUsers
+namespace Lanre.Application.Queries.UserQueries
 {
     using System;
 
-    public class GetUserResponse
+    public class UserQueryResponse
     {
-        public GetUserResponse(Guid id, string name, string surname)
+        public UserQueryResponse(Guid id, string name, string surname)
         {
             this.Id = id;
             this.Name = name;

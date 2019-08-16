@@ -5,7 +5,7 @@ namespace Lanre.Clients.Api.Controllers.V1
     using System;
     using System.Threading.Tasks;
     using Lanre.Application.Commands.UsersCrud;
-    using Lanre.Application.Queries.GetUsers;
+    using Lanre.Application.Queries.UserQueries;
     using Lanre.Infrastructure.ControllersCore;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
@@ -23,7 +23,23 @@ namespace Lanre.Clients.Api.Controllers.V1
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await this._mediator.Send(new GetUsersQuery());
+            var users = await this._mediator.Send(new UsersQuery());
+
+            return this.Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(Guid id)
+        {
+            var users = await this._mediator.Send(new UserQuery() { Id = id });
+
+            return this.Ok(users);
+        }
+
+        [HttpGet("paginated")]
+        public async Task<IActionResult> GetUsersPaginated([FromQuery]UsersQueryPaginated query)
+        {
+            var users = await this._mediator.Send(query);
 
             return this.Ok(users);
         }
@@ -57,6 +73,5 @@ namespace Lanre.Clients.Api.Controllers.V1
 
             return this.Ok(new { });
         }
-
     }
 }
