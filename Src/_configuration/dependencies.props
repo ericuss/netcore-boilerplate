@@ -9,6 +9,7 @@
     <PropertyGroup Label="Microsoft Package Versions">
         <MicrosoftHttpAbstractionsPackageVersion>2.2.0</MicrosoftHttpAbstractionsPackageVersion>
         <MicrosoftMvcApiExplorerPackageVersion>2.2.0</MicrosoftMvcApiExplorerPackageVersion>
+        <MicrosoftExtensionsConfigurationJsonPackageVersion>2.2.0</MicrosoftExtensionsConfigurationJsonPackageVersion>
         <MicrosoftExtensionsConfigurationUserSecretsPackageVersion>2.2.0</MicrosoftExtensionsConfigurationUserSecretsPackageVersion>
         <MicrosoftMvcFormattersJsonPackageVersion>2.2.0</MicrosoftMvcFormattersJsonPackageVersion>
         <MicrosoftMvcCorePackageVersion>2.2.0</MicrosoftMvcCorePackageVersion>
@@ -23,4 +24,17 @@
         <StyleCopAnalizersPackageVersion>1.1.0-beta009</StyleCopAnalizersPackageVersion>
     </PropertyGroup>
 
+    <PropertyGroup Label="Package Versions Testing">
+        <CoverletMsbuildPackageVersion>2.5.0</CoverletMsbuildPackageVersion>
+        <MicrosoftNETTestSdkPackageVersion>15.9.0</MicrosoftNETTestSdkPackageVersion>
+        <MicrosoftTestHostPackageVersion>2.2.0</MicrosoftTestHostPackageVersion>
+        <XunitPackageVersion>2.4.0</XunitPackageVersion>
+        <XunitRunnerVisualStudioPackageVersion>2.4.0</XunitRunnerVisualStudioPackageVersion>
+        <MoqPackageVersion>4.12.0</MoqPackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Tooling">
+        <DotnetXunit>2.3.1</DotnetXunit>
+        <DotnetReportgeneratorCli>4.0.5</DotnetReportgeneratorCli>
+    </PropertyGroup>
 </Project>

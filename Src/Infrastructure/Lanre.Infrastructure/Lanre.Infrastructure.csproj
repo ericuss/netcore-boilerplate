@@ -16,6 +16,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="$(MicrosoftMvcCorePackageVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <AdditionalFiles Include="..\..\configuration\stylecop.json" />
+    <AdditionalFiles Include="..\..\_configuration\stylecop.json" />
   </ItemGroup>
 </Project>
