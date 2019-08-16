@@ -7,14 +7,25 @@
 
 
     <PropertyGroup Label="Microsoft Package Versions">
-        <MicrosoftHttpAbstractionsPackageVersion>2.2.0</MicrosoftHttpAbstractionsPackageVersion>
-        <MicrosoftMvcApiExplorerPackageVersion>2.2.0</MicrosoftMvcApiExplorerPackageVersion>
+        <MicrosoftAspnetCoreHostingPackageVersion>2.2.0</MicrosoftAspnetCoreHostingPackageVersion>
         <MicrosoftExtensionsConfigurationJsonPackageVersion>2.2.0</MicrosoftExtensionsConfigurationJsonPackageVersion>
         <MicrosoftExtensionsConfigurationUserSecretsPackageVersion>2.2.0</MicrosoftExtensionsConfigurationUserSecretsPackageVersion>
-        <MicrosoftMvcFormattersJsonPackageVersion>2.2.0</MicrosoftMvcFormattersJsonPackageVersion>
-        <MicrosoftMvcCorePackageVersion>2.2.5</MicrosoftMvcCorePackageVersion>
-        <MicrosoftMvcVersioningPackageVersion>3.1.5</MicrosoftMvcVersioningPackageVersion>
         <MicrosoftExtensionsDependencyInjectionPackageVersion>2.2.0</MicrosoftExtensionsDependencyInjectionPackageVersion>
+        <MicrosoftHttpAbstractionsPackageVersion>2.2.0</MicrosoftHttpAbstractionsPackageVersion>
+        <MicrosoftMvcApiExplorerPackageVersion>2.2.0</MicrosoftMvcApiExplorerPackageVersion>
+        <MicrosoftMvcCorePackageVersion>2.2.5</MicrosoftMvcCorePackageVersion>
+        <MicrosoftMvcFormattersJsonPackageVersion>2.2.0</MicrosoftMvcFormattersJsonPackageVersion>
+        <MicrosoftMvcVersioningPackageVersion>3.1.5</MicrosoftMvcVersioningPackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Package Versions Microsoft EF">
+        <MicrosoftEntityFrameworkCorePackageVersion>2.2.1</MicrosoftEntityFrameworkCorePackageVersion>
+        <MicrosoftEntityFrameworkCoreDesignPackageVersion>2.2.1</MicrosoftEntityFrameworkCoreDesignPackageVersion>
+        <MicrosoftEntityFrameworkCoreInMemoryPackageVersion>2.2.1</MicrosoftEntityFrameworkCoreInMemoryPackageVersion>
+        <MicrosoftEntityFrameworkCoreRelationalPackageVersion>2.2.1</MicrosoftEntityFrameworkCoreRelationalPackageVersion>
+        <MicrosoftEntityFrameworkCoreSqlServerPackageVersion>2.2.1</MicrosoftEntityFrameworkCoreSqlServerPackageVersion>
+        <MicrosoftEntityFrameworkCoreToolsPackageVersion>2.2.1</MicrosoftEntityFrameworkCoreToolsPackageVersion>
+        <MicrosoftExtensionsCachingMemoryPackageVersion>2.2.0</MicrosoftExtensionsCachingMemoryPackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Label="Package Versions">

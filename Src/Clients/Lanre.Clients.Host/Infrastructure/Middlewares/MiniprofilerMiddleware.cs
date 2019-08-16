@@ -20,7 +20,6 @@ namespace Lanre.Clients.Host.Infrastructure.Middlewares
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
-
             var profiler = MiniProfiler.StartNew("Miniprofiler");
             using (profiler.Step("Request"))
             {

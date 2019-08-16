@@ -3,6 +3,7 @@
 namespace Lanre.Clients.Host
 {
     using Lanre.Clients.Api;
+    using Lanre.Data;
     using Lanre.Infrastructure.Entities;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -38,6 +39,7 @@ namespace Lanre.Clients.Host
             services
                 .ConfigureServicesApi()
                 .Services
+                .RegisterDataServices(this._appSettings)
                 .AddCustomHealthChecks()
                 .AddCustomSwagger()
                 ;

@@ -43,6 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\Lanre.Data\Lanre.Data.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Lanre.Infrastructure\Lanre.Infrastructure.csproj" />
     <ProjectReference Include="..\Lanre.Clients.Api\Lanre.Clients.Api.csproj" />
   </ItemGroup>

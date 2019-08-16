@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
   </PropertyGroup>
@@ -14,13 +15,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="$(MicrosoftMvcCorePackageVersion)" />
+    <PackageReference Include="Microsoft.AspnetCore.Hosting" Version="$(MicrosoftAspnetCoreHostingPackageVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(MicrosoftExtensionsConfigurationJsonPackageVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="$(MicrosoftEntityFrameworkCoreDesignPackageVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(MicrosoftEntityFrameworkCoreInMemoryPackageVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="$(MicrosoftEntityFrameworkCoreRelationalPackageVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCoreSqlServerPackageVersion)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="$(MicrosoftEntityFrameworkCoreToolsPackageVersion)" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalizersPackageVersion)" PrivateAssets="All" />
+  </ItemGroup>
+
   <ItemGroup>
     <AdditionalFiles Include="..\..\_configuration\stylecop.json" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Lanre.Domain\Lanre.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Lanre.Infrastructure\Lanre.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
