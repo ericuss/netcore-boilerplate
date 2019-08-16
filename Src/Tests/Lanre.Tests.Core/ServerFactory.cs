@@ -21,7 +21,7 @@ namespace Lanre.Tests.Core
             }
 
             var path = Directory.GetCurrentDirectory();
-            var applicationPath = Path.GetFullPath(Path.Combine(path, "../../../../../clients/Lanre.Clients.Api/"));
+            var applicationPath = Path.GetFullPath(Path.Combine(path, "../../../../../Clients/Lanre.Clients.Api/"));
 
             webHost.UseContentRoot(applicationPath)
                 .UseEnvironment("Development");
