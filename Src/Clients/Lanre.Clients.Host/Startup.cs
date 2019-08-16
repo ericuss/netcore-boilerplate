@@ -12,6 +12,7 @@ namespace Lanre.Clients.Host
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Serilog;
 
     public class Startup
     {
@@ -32,6 +33,8 @@ namespace Lanre.Clients.Host
 
             var builder = configBuilder.Build();
             this._appSettings = builder.Get<AppSettings>();
+
+            Log.Logger.Warning("settings: {@_appSettings}", this._appSettings);
         }
 
         public IConfiguration Configuration { get; }

@@ -40,7 +40,12 @@ namespace Lanre.Data.Contexts.Core
             }
             else
             {
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlServer(connectionString, 
+                                sqlServerOptionsAction: sqlOptions =>
+                                {
+                                    //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 
+                                    sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                                });
             }
 
             var context = (TContext)Activator.CreateInstance(typeof(TContext), new object[] { optionsBuilder.Options, settings });
