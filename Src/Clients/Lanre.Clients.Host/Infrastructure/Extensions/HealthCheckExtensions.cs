@@ -2,6 +2,7 @@
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    using global::HealthChecks.UI.Client;
     using Lanre.Infrastructure.Entities;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -25,10 +26,16 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IApplicationBuilder UseHealthChecks(this IApplicationBuilder app)
         {
-            return app.UseHealthChecks("/liveness", new HealthCheckOptions
+            return app
+            .UseHealthChecks("/hc", new HealthCheckOptions
             {
-                Predicate = r => r.Name.Contains("self"),
-            });
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            })
+             .UseHealthChecks("/liveness", new HealthCheckOptions
+             {
+                 Predicate = r => r.Name.Contains("self")
+             });
         }
     }
 }

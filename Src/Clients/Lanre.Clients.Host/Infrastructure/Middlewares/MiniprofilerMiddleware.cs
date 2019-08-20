@@ -20,22 +20,22 @@ namespace Lanre.Clients.Host.Infrastructure.Middlewares
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
-            var profiler = MiniProfiler.StartNew("Miniprofiler");
-            using (profiler.Step("Request"))
-            {
-                httpContext.Response.OnStarting(
-                    state =>
-                    {
-                        var httpContext = (HttpContext)state;
-                        profiler.Stop();
-                        httpContext.Response.Headers.Add("X-Response-Time", new[] { profiler.RenderPlainText().Replace("\n", " ").Replace("\r", " ").ToString() });
-                        return Task.FromResult(0);
-                    }, httpContext);
+            // var profiler = MiniProfiler.StartNew("Miniprofiler");
+            // using (profiler.Step("Request"))
+            // {
+                // httpContext.Response.OnStarting(
+                //     state =>
+                //     {
+                //         var httpContext = (HttpContext)state;
+                //         profiler.Stop();
+                //         httpContext.Response.Headers.Add("X-Response-Time", new[] { profiler.RenderPlainText().Replace("\n", " ").Replace("\r", " ").ToString() });
+                //         return Task.FromResult(0);
+                //     }, httpContext);
 
                 await this._next(httpContext);
-            }
+            // }
 
-            this._logger.LogInformation(profiler.RenderPlainText());
+            // this._logger.LogInformation(profiler.RenderPlainText());
         }
     }
 }

@@ -26,8 +26,10 @@ namespace Lanre.Clients.Host
 
         public static IWebHostBuilder CreateHostBuilder(string[] args) =>
              WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
                 .UseSerilog((builderContext, config) => CreateSerilogLogger(builderContext, config))
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+            ;
 
         private static void CreateSerilogLogger(WebHostBuilderContext builderContext, LoggerConfiguration config)
         {
