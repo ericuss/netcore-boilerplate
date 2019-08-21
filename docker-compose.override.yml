@@ -13,7 +13,7 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=52443
       - HttpsConfig__Port=52443
-      - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql.data;Database=Microsoft.Lanre.LanreDb;User Id=sa;Password=Pass@word}
+      - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql.data;Database=Lanre.LanreDb;User Id=sa;Password=Pass@word}
     ports:
       - "5280:80"
       - "52443:443"

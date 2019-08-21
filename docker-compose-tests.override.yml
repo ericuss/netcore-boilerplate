@@ -9,7 +9,7 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=5444
       - HttpsConfig__Port=5444
-      - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql-data-test;Database=Microsoft.Lanre.LanreDb.Test;User Id=sa;Password=Pass@word}
+      - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql-data-test;Database=Lanre.LanreDb.Test;User Id=sa;Password=Pass@word}
     ports:
       - "5113:80"
       - "5444:443"
@@ -26,7 +26,7 @@ services:
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=5443
       - HttpsConfig__Port=5443
-      - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql-data-test;Database=Microsoft.Lanre.LanreDb.Test;User Id=sa;Password=Pass@word}
+      - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql-data-test;Database=Lanre.LanreDb.Test;User Id=sa;Password=Pass@word}
     ports:
       - "5114:80"
       - "5443:443"
