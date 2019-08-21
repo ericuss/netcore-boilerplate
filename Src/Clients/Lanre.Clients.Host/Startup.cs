@@ -50,7 +50,7 @@ namespace Lanre.Clients.Host
                 .RegisterDataServices(this._appSettings)
                 .AddCustomHealthChecks(this._appSettings)
                 .AddCustomSwagger()
-                .AddCustomHttps(this._currentEnvironment, this._appSettings)
+                .AddCustomHttps(this._appSettings)
                 ;
         }
 
