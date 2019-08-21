@@ -13,10 +13,10 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services
                 .AddHttpsRedirection(options =>
-                {
-                    options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
-                    options.HttpsPort = appSettings.HttpsConfig.Port;
-                })
+                 {
+                     options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                     options.HttpsPort = appSettings.HttpsConfig.Port;
+                 })
                 ;
             return services;
         }
@@ -25,7 +25,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             return app
                     .AddIf(!env.IsDevelopment(), x => x.UseHsts())
-                    .AddIf(!env.IsDevelopment(), x => x.UseHttpsRedirection())
+                    .UseHttpsRedirection()
                 ;
         }
     }
