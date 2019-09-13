@@ -3,8 +3,12 @@
 namespace Lanre.Tests.Core
 {
     using System.IO;
+    using System.Reflection;
+    using Lanre.Application.Queries.UserQueries;
     using Lanre.Clients.Api;
+    using Lanre.Data;
     using Lanre.Infrastructure.Entities;
+    using MediatR;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -24,6 +28,7 @@ namespace Lanre.Tests.Core
             var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile(appJsonPath, optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables()
                 ;
 
             var builder = configBuilder.Build();
@@ -32,11 +37,13 @@ namespace Lanre.Tests.Core
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<AppSettings>(this._appSettings);
-
             services
-                .ConfigureServicesApi() // this._appSettings.Settings.AddAuthorization)
-                .AddApplicationPart(typeof(Clients.Api.Controllers.V1.HomeController).Assembly) // Fix for integration tests
+                .AddSingleton<AppSettings>(this._appSettings)
+                .AddMediatR(Assembly.GetAssembly(typeof(UsersQuery)))
+                .ConfigureServicesApi()
+                    .AddApplicationPart(typeof(Clients.Api.Controllers.V1.HomeController).Assembly) // Fix for integration tests
+                .Services
+                .RegisterDataServices(this._appSettings)
                 ;
         }
 

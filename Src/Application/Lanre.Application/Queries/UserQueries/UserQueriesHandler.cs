@@ -15,7 +15,7 @@ namespace Lanre.Application.Queries.UserQueries
 
     public class UserQueriesHandler : IRequestHandler<UserQuery, UserQueryResponse>,
                                       IRequestHandler<UsersQuery, IEnumerable<UserQueryResponse>>,
-                                      IRequestHandler<UsersQueryPaginated, IEnumerable<UserQueryResponse>>
+                                      IRequestHandler<UsersQueryPaginated, PaginatedResult<UserQueryResponse>>
     {
         private readonly IRepositoryReadOnly<User, Guid> userRepository;
 
@@ -34,15 +34,23 @@ namespace Lanre.Application.Queries.UserQueries
         public async Task<UserQueryResponse> Handle(UserQuery request, CancellationToken cancellationToken)
         {
             var user = await this.userRepository.GetByIdAsync(request.Id);
+
+            if (user == null)
+            {
+                return null;
+            }
+
             var userMapped = this.MapToResponse(user.Id, user.Name, user.Surname);
             return userMapped;
         }
 
-        public async Task<IEnumerable<UserQueryResponse>> Handle(UsersQueryPaginated request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<UserQueryResponse>> Handle(UsersQueryPaginated request, CancellationToken cancellationToken)
         {
             var users = await this.userRepository.GetAsync(page: request.PageNumber, pageSize: request.PageSize, orderBy: this.GenerateOrderBy(request.OrderBy, request.OrderIsAsc));
-            var usersMapped = users.Select(u => this.MapToResponse(u.Id, u.Name, u.Surname));
-            return usersMapped;
+            var usersCount = await this.userRepository.CountAsync();
+            var paginatedResult = PaginatedResult<UserQueryResponse>.MapFromRequestMappingEntities<User>(request, users, u => this.MapToResponse(u.Id, u.Name, u.Surname), usersCount);
+
+            return paginatedResult;
         }
 
         private UserQueryResponse MapToResponse(Guid id, string name, string surname)

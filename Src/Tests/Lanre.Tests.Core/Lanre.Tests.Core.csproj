@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -35,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Clients\Lanre.Clients.Api\Lanre.Clients.Api.csproj" />
+    <ProjectReference Include="..\..\Data\Lanre.Data\Lanre.Data.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Lanre.Infrastructure\Lanre.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

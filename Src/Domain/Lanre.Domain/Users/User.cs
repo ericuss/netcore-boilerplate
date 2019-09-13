@@ -8,6 +8,7 @@ namespace Lanre.Domain.Entities
     public class User : AggregateRoot<Guid>
     {
         public User(string name, string surname)
+            : base(Guid.NewGuid())
         {
             this.Name = name;
             this.Surname = surname;

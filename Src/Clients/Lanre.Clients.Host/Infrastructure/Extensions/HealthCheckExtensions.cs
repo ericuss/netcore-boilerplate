@@ -30,11 +30,11 @@ namespace Microsoft.Extensions.DependencyInjection
             .UseHealthChecks("/hc", new HealthCheckOptions
             {
                 Predicate = _ => true,
-                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
             })
              .UseHealthChecks("/liveness", new HealthCheckOptions
              {
-                 Predicate = r => r.Name.Contains("self")
+                 Predicate = r => r.Name.Contains("self"),
              });
         }
     }

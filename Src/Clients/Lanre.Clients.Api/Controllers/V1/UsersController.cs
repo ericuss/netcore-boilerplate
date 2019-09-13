@@ -31,9 +31,19 @@ namespace Lanre.Clients.Api.Controllers.V1
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(Guid id)
         {
-            var users = await this._mediator.Send(new UserQuery() { Id = id });
+            if (id == default)
+            {
+                return this.BadRequest();
+            }
 
-            return this.Ok(users);
+            var user = await this._mediator.Send(new UserQuery() { Id = id });
+
+            if (user == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.Ok(user);
         }
 
         [HttpGet("paginated")]
@@ -47,9 +57,9 @@ namespace Lanre.Clients.Api.Controllers.V1
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateCommand command)
         {
-            await this._mediator.Send(command);
+            var response = await this._mediator.Send(command);
 
-            return this.Ok(new { });
+            return this.Ok(response);
         }
 
         [HttpPut("{id}")]

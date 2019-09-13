@@ -8,6 +8,7 @@ namespace Lanre.Tests.Core
     using System.Net.Http.Headers;
     using System.Text;
     using System.Threading.Tasks;
+    using Lanre.Data.Contexts.Lanre;
     using Microsoft.AspNetCore.TestHost;
     using Microsoft.Extensions.DependencyInjection;
     using Newtonsoft.Json;
@@ -33,12 +34,13 @@ namespace Lanre.Tests.Core
         {
             this._server = ServerFactory.Server(startup, configureServices);
 
-            // this.Context = this.Server.Host.Services.GetService(typeof(LanreContext)) as LanreContext;
+            this.Context = this.Server.Host.Services.GetService(typeof(LanreContext)) as LanreContext;
             this._client = this.Server.CreateClient();
             this._url = url;
         }
 
-        // public LanreContext Context { get; }
+        protected LanreContext Context { get; private set; }
+
         protected TestServer Server => this._server;
 
         protected HttpClient Client => this._client;

@@ -2,7 +2,11 @@ version: '3.4'
 
 services:
   sql-data-test:
-    image: microsoft/mssql-server-linux:2017-latest
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"  
   lanre-clients-host-unit-tests:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -27,6 +31,9 @@ services:
       - ASPNETCORE_HTTPS_PORT=5443
       - HttpsConfig__Port=5443
       - ConnectionStrings__Lanre=${LANRE_DB:-Server=sql-data-test;Database=Lanre.LanreDb.Test;User Id=sa;Password=Pass@word}
+      - Database__UseInMemory=false
+      - Database__Migrate=true
+      - Database__EnsureDeleted=false
     ports:
       - "5114:80"
       - "5443:443"

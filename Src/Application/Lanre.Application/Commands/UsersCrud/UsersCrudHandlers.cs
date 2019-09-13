@@ -9,8 +9,8 @@ namespace Lanre.Application.Commands.UsersCrud
     using Lanre.Infrastructure.Repository;
     using MediatR;
 
-    public class UsersCrudHandlers : IRequestHandler<UserCreateCommand, Unit>,
-                                     IRequestHandler<UserUpdateCommand, Unit>,
+    public class UsersCrudHandlers : IRequestHandler<UserCreateCommand, UserIdResponse>,
+                                     IRequestHandler<UserUpdateCommand, UserIdResponse>,
                                      IRequestHandler<UserDeleteCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -22,21 +22,21 @@ namespace Lanre.Application.Commands.UsersCrud
             this._userRepository = userRepository;
         }
 
-        public async Task<Unit> Handle(UserCreateCommand request, CancellationToken cancellationToken)
+        public async Task<UserIdResponse> Handle(UserCreateCommand request, CancellationToken cancellationToken)
         {
             var user = new User(request.Name, request.Surname);
             this._userRepository.Add(user);
             await this._unitOfWork.SaveChangesAsync();
-            return Unit.Value;
+            return new UserIdResponse() { Id = user.Id };
         }
 
-        public async Task<Unit> Handle(UserUpdateCommand request, CancellationToken cancellationToken)
+        public async Task<UserIdResponse> Handle(UserUpdateCommand request, CancellationToken cancellationToken)
         {
             var user = await this._userRepository.GetByIdAsync(request.Id);
             user.Update(request.Name, request.Surname);
             this._userRepository.Update(user);
             await this._unitOfWork.SaveChangesAsync();
-            return Unit.Value;
+            return new UserIdResponse() { Id = user.Id };
         }
 
         public async Task<Unit> Handle(UserDeleteCommand request, CancellationToken cancellationToken)

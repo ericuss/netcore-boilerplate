@@ -4,7 +4,7 @@ namespace Lanre.Application.Commands.UsersCrud
 {
     using MediatR;
 
-    public class UserCreateCommand : IRequest<Unit>
+    public class UserCreateCommand : IRequest<UserIdResponse>
     {
         public string Name { get; set; }
 

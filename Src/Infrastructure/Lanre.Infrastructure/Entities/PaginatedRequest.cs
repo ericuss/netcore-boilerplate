@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Lanre.Infrastructure.Entities
 {
     public class PaginatedRequest

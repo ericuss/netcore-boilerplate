@@ -25,18 +25,20 @@ namespace Lanre.Infrastructure.Entities
 
 
         public static PaginatedResult<TResponse> MapFromRequestMappingEntities<TEntityOrigin>(
-                PaginatedResult<TEntityOrigin> request,
-                Func<TEntityOrigin, TResponse> entitiesMapper)
+                PaginatedRequest request,
+                IEnumerable<TEntityOrigin> entities,
+                Func<TEntityOrigin, TResponse> entitiesMapper,
+                int totalItems)
             where TEntityOrigin : class
         {
             return new PaginatedResult<TResponse>()
             {
-                Entities = request.Entities.Select(entitiesMapper),
+                Entities = entities.Select(entitiesMapper),
                 PageNumber = request.PageNumber,
                 PageSize = request.PageSize,
                 OrderBy = request.OrderBy,
                 OrderIsAsc = request.OrderIsAsc,
-                TotalItems = request.TotalItems
+                TotalItems = totalItems
             };
         }
 

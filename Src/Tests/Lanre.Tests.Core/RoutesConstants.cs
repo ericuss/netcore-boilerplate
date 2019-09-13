@@ -9,5 +9,11 @@ namespace Lanre.Tests.Core
             public const string Base = "Home";
             public const string Alive = "/Alive";
         }
+
+        public static class Users
+        {
+            public const string Base = "Api/Users";
+            public const string Paginated = Users.Base + "/Paginated";
+        }
     }
 }
