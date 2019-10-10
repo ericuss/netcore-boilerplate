@@ -10,9 +10,4 @@ services:
       dockerfile: Src/Clients/Lanre.Clients.Host/Dockerfile
     depends_on:
       - sql.data
-  docs:
-    image: ${DOCKER_REGISTRY-}lanredocs:${TAG:-latest}
-    build:
-      context: .
-      dockerfile: Docs/Dockerfile
   
