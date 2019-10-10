@@ -20,6 +20,7 @@ RUN dotnet build "Lanre.Clients.Host.csproj" -c Release -o /app
 
 FROM build AS publish
 RUN dotnet publish "Lanre.Clients.Host.csproj" -c Release -o /app
+COPY ["Src/Clients/Lanre.Clients.Host/lanrecert.pfx", "/app"]
 
 FROM base AS final
 WORKDIR /app
